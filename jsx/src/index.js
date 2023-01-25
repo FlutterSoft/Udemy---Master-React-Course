@@ -1,6 +1,7 @@
 // 1) Import the React & ReactDOM Libraries
-import React from 'react'
+import React, { useState} from 'react'
 import ReactDOM from 'react-dom/client'
+import App from './App'
 
 // 2) Get a reference to the div with ID root
 // 3) Tell React to take control of that element
@@ -8,16 +9,6 @@ import ReactDOM from 'react-dom/client'
 const root = ReactDOM.createRoot(document.getElementById("root"))
 
 // 4) Create a component
-function App(){
-    const person = { name: "sam"}
-    return (
-        <h1>
-            {new Date().toLocaleTimeString()}
-            
-        </h1>
-    ) 
-
-}
 
 // 5) Show the component on the screen
 root.render(<App />)
