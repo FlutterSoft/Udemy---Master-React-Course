@@ -10,7 +10,5 @@ export default function App(){
             autoFocus={true} 
             spellCheck
         />
-
-    
     ) 
 }
