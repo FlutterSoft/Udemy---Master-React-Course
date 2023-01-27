@@ -1,0 +1,20 @@
+li{
+    position: relative;
+    box-shadow: 0px 3px 4px lightgray;
+}
+
+.heart{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    max-width: 100%;
+}
+
+button{
+    background-color: lightgreen;
+    border: 1px solid rgb(60, 117, 60);
+    font-size: 20px;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+}
