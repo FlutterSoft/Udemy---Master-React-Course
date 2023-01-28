@@ -1,0 +1,19 @@
+.search-bar{
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    padding: 1em 2em;
+    max-width: 20em;
+    margin: 0 auto 50px auto;
+}
+
+.search-bar form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-bar input{
+    text-align: center;
+
+}

@@ -1,7 +1,5 @@
-export default function ImageShow(){
+export default function ImageShow({ image }){
     return (
-        <div>
-            ImageShow
-        </div>
+        <img alt={image.alt_description} src={image.urls.small} style={{ width: "100%"}} />
     )
 }
