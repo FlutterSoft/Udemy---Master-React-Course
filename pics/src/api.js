@@ -1,7 +1,5 @@
 import axios from 'axios'
 
-console.log(process.env)
-
 const searchImages = async (term) => {
     console.log(term)
     try {
