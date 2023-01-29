@@ -1,5 +1,9 @@
-export default function BookList(){
+import BookShow from './BookShow'
+export default function BookList({ books, onEdit, onDelete }){
+    const renderedBooks = books.map( (book) => {
+        return <BookShow key={book.id} book={book} onDelete={onDelete} onEdit={onEdit} />
+    })
     return(
-        <div>Book List</div>
+        <div className="book-list">{renderedBooks}</div>
     )
 }
