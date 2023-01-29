@@ -1,13 +1,28 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import axios from 'axios'
 import BookCreate from './components/BookCreate'
 import BookList from './components/BookList'
+
 
 export default function App(){
     const [books, setBooks] = useState([])
 
-    const createBook = (title) => {
-        const id = Math.round(Math.random()*100000)
-        const updatedBooks = [...books, {id, title}]
+    useEffect(() => {
+        fetchBooks()
+    }, [])
+
+    const fetchBooks = async () => {
+        const response = await axios.get('http://localhost:3001/books')
+        setBooks(response.data)
+    }
+
+    const createBook = async (title) => {
+        const response = await axios.post('http://localhost:3001/books', {
+            title
+        })
+        console.log(response)
+
+        const updatedBooks = [...books, response.data]
         setBooks(updatedBooks)
     }
 
