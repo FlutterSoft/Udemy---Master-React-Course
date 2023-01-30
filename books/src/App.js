@@ -26,17 +26,22 @@ export default function App(){
         setBooks(updatedBooks)
     }
 
-    const editBookById = (id, newTitle) => {
+    const editBookById = async (id, newTitle) => {
+        const response = await axios.put(`http://localhost:3001/books/${id}`, {
+            title: newTitle
+        })
+        
         const updatedBooks = books.map( (book)  => {
             if(book.id === id){
-                return {...book, title: newTitle}
+                return {...book, ...response.data}
             }
             return book
         })
         setBooks(updatedBooks)
     }
 
-    const deleteBook = (id) => {
+    const deleteBook = async (id) => {
+        const response = await axios.delete(`http://localhost:3001/books/${id}`)
         const updatedBooks = books.filter(book => {
             return book.id !== id
         })

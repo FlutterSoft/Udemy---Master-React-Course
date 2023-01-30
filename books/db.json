@@ -1,7 +1,7 @@
 {
   "books": [
     {
-      "title": "Harry Potter",
+      "title": "Harry Potters",
       "id": 1
     },
     {
@@ -15,10 +15,6 @@
     {
       "title": "Hairy Mclarey",
       "id": 4
-    },
-    {
-      "title": "Harryyyy",
-      "id": 5
     }
   ]
 }
