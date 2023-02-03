@@ -1,8 +1,7 @@
-import Button from './components/Button'
+import Button from '../components/Button'
 import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go'
 
-
-export default function App(){
+export default function ButtonPage(){
     return (
         <div className="bg-gray-100 h-screen">
             <div>
@@ -21,6 +20,5 @@ export default function App(){
                 <Button onMouseEnter={()=>alert('moused over')} danger rounded>Please Just Click Meeeeee</Button>
             </div>
         </div>
-
     )
 }
