@@ -1,26 +1,25 @@
-import Button from './components/Button'
-import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go'
-
+import Accordion from './components/Accordion'
 
 export default function App(){
+    const items = [
+        {
+            id: 'oasdfi',
+            label: 'Can I use React on a project?',
+            content: 'You can use React on any project. You can use React on any project. You can use React on any project. '
+        },
+        {
+            id: 'asdf2f',
+            label: 'Can I use JavaScript on a project?',
+            content: 'Of course JavaScript can be absolutely anywhere. Of course JavaScript can be absolutely anywhere. Of course JavaScript can be absolutely anywhere. Of course JavaScript can be absolutely anywhere. '
+        },
+        {
+            id: 'asdfxcv',
+            label: 'Can I use Python on a project?',
+            content: 'You can use Python on any project. You can use Python on any project. You can use Python on any project. '
+        },
+    ]
     return (
-        <div className="bg-gray-100 h-screen">
-            <div>
-                <Button onClick={()=>alert('clicked')} success>Click <GoBell /></Button>
-            </div>
-            <div>
-                <Button primary>Download <GoCloudDownload /></Button>
-            </div>
-            <div>
-                <Button warning outline>Click Me Pleaseee</Button>
-            </div>
-            <div>
-                <Button secondary> Save <GoDatabase /></Button>
-            </div>
-            <div>
-                <Button onMouseEnter={()=>alert('moused over')} danger rounded>Please Just Click Meeeeee</Button>
-            </div>
-        </div>
+        <Accordion items={items} />
 
     )
 }
