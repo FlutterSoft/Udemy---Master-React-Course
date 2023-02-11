@@ -3,7 +3,7 @@ import { GoBell, GoCloudDownload, GoDatabase } from 'react-icons/go'
 
 export default function ButtonPage(){
     return (
-        <div className="bg-gray-100 h-screen">
+        <div className="">
             <div>
                 <Button onClick={()=>alert('clicked')} success>Click <GoBell /></Button>
             </div>

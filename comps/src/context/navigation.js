@@ -1,5 +1,6 @@
 import { createContext, useEffect, useState } from 'react'
 import Button from '../components/Button'
+
 const NavigationContext = createContext()
 
 function NavigationProvider({ children }) {
@@ -22,13 +23,7 @@ function NavigationProvider({ children }) {
     }
 
     return(
-        <NavigationContext.Provider value={{}}>
-            <div>
-                <Button onClick={()=> {navigate('/accordion')}}>Go to accordion</Button>
-                <Button onClick={()=> {navigate('/dropdown')}}>Go to dropdown</Button>
-                <Button onClick={()=> {navigate('/')}}>Go to home</Button>
-            </div>
-            {currentPath}
+        <NavigationContext.Provider value={{currentPath, navigate}}>
             {children}
         </NavigationContext.Provider>
     ) 
