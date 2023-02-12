@@ -3,7 +3,7 @@ import Sidebar from './components/Sidebar'
 import AccordionPage from './pages/AccordionPage'
 import DropdownPage from './pages/DropdownPage'
 import ButtonPage from './pages/ButtonPage'
-
+import ModalPage from './pages/ModalPage'
 
 export default function App(){
 
@@ -24,6 +24,9 @@ export default function App(){
                 </Route>
                 <Route path="/dropdown">
                     <DropdownPage />
+                </Route>
+                <Route path="/modal">
+                    <ModalPage />
                 </Route>
             </div>
 
