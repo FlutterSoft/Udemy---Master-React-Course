@@ -1,4 +1,11 @@
-export default function Table({ data }) {
+export default function Table({ data, config }) {
+    
+    const renderedHeaders = config.map( (column) => {
+        return (
+            <th key={column.label}>{column.label}</th>
+        )
+    })
+    
     const renderedData = data.map( fruit => {
         return (
             <tr className="border-b" key={fruit.name}>
@@ -17,9 +24,7 @@ export default function Table({ data }) {
         <table className="table-auto border-spacing-2">
             <thead>Fruit Table</thead>
             <tr className="border-b-2">
-                <th>Fruits</th>
-                <th>Colour</th>
-                <th>Score</th>
+                {renderedHeaders}
             </tr>
             <tbody>
                 {renderedData}
