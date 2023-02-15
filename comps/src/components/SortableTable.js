@@ -7,7 +7,14 @@ export default function SortableTable(props){
     const [sortBy, setSortBy] = useState(null)
 
     const { config, data } = props
+
     const handleClick = (label) => {
+        if(sortBy && label !== sortBy){
+            setSortOrder('asc')
+            setSortBy(label)
+            return
+        }
+
         if(sortOrder === null){
             setSortOrder('asc')
             setSortBy(label)
@@ -21,6 +28,7 @@ export default function SortableTable(props){
             setSortBy(null)
         }
     }
+
     const updatedConfig = config.map( (column) => {
         if(!column.sortValue){
             return column
@@ -28,13 +36,19 @@ export default function SortableTable(props){
         return {
             ...column,
             header: () => 
-                <th onClick={() => handleClick(column.label)}           
-                    className="cursor-pointer flex items-center gap-1"
+                <th 
+                    onClick={() => handleClick(column.label)}           
+                    className="cursor-pointer gap-1 hover:bg-gray-100"
                 >
-                    {column.label} 
+                    <div className="flex items-center">
+                        {getIcons(column.label, sortBy, sortOrder)}
+                        {column.label} 
+                    </div>
+
                 </th>
         }
     })
+
     let sortedData = data
     if (sortOrder && sortBy){
         const { sortValue } = config.find(column => column.label === sortBy)
@@ -52,9 +66,19 @@ export default function SortableTable(props){
     }
 
     return(
-        <div>
-            {sortOrder} - {sortBy}
-            <Table {...props} data={sortedData} config={updatedConfig} />
-        </div>
+        <Table {...props} data={sortedData} config={updatedConfig} />
     )
+}
+
+
+const getIcons = (label, sortBy, sortOrder) => {
+    if(label  !== sortBy || sortOrder === null){
+        return <BiSortAlt2/>
+    }
+    else if(label === sortBy && sortOrder === 'asc'){
+        return <BiSortUp />
+    }
+    else if(label === sortBy && sortOrder === 'desc'){
+        return <BiSortDown />
+    }
 }
