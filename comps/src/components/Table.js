@@ -1,8 +1,12 @@
+import { Fragment } from 'react'
+
 export default function Table({ data, config, tableHeading, keyFn }) {
     
     const renderedHeaders = config.map( (column) => {
         return (
-            <th key={column.label}>{column.label}</th>
+            column.header ? 
+                <Fragment key={column.label}>{column.header()}</Fragment> :   
+                <th key={column.label}>{column.label}</th>
         )
     })
     
@@ -25,10 +29,13 @@ export default function Table({ data, config, tableHeading, keyFn }) {
 
     return (
         <table className="table-auto border-spacing-2">
-            <thead>{tableHeading}</thead>
-            <tr className="border-b-2">
-                {renderedHeaders}
-            </tr>
+            <caption> {tableHeading} </caption>
+            <thead>
+                <tr className="border-b-2">
+                    {renderedHeaders}
+                </tr>
+            </thead>
+
             <tbody>
                 {renderedRows}
             </tbody>

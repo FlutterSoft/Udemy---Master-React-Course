@@ -1,4 +1,6 @@
-import Table from '../components/Table'
+// import Table from '../components/Table'
+import SortableTable from '../components/SortableTable'
+
 
 export default function TablePage(){
     const data = [
@@ -13,7 +15,7 @@ export default function TablePage(){
         { 
             label: 'Name',
             render: (fruit) => fruit.name,
-            sort: (a,b) => a.localeCompare(b),
+            sortValue: (fruit) => fruit.name
         },
         { 
             label: 'Color',
@@ -23,7 +25,7 @@ export default function TablePage(){
         { 
             label: 'Score',
             render: (fruit) => fruit.score,
-            sort: (a,b) => a-b,
+            sortValue: (fruit) => fruit.score
         },
     ]
 
@@ -32,7 +34,7 @@ export default function TablePage(){
     }
     return (
         <div>
-            <Table 
+            <SortableTable 
                 data={data} 
                 config={config} 
                 tableHeading="Fruit Table"
