@@ -68,6 +68,7 @@ export default function TablePage(){
     const keyFn = (row) => {
         return row.id
     }
+    
     return (
         <div>
             <Table 
