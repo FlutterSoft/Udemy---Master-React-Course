@@ -1,33 +1,33 @@
-// import Table from '../components/Table'
+import Table from '../components/Table'
 import SortableTable from '../components/SortableTable'
 import jsonData from '../MOCK_DATA.json'
 
 export default function TablePage(){
-    // const data = [
-    //     { name: 'Orange', color: 'bg-orange-500', score: 3},
-    //     { name: 'Apple', color: 'bg-red-500', score: 2},
-    //     { name: 'Banana', color: 'bg-yellow-500', score: 5},
-    //     { name: 'Lime', color: 'bg-green-400', score: 2},
-    //     { name: 'Mango', color: 'bg-orange-300', score: 4},
-    // ]
+    const oldData = [
+        { name: 'Orange', color: 'bg-orange-500', score: 3},
+        { name: 'Apple', color: 'bg-red-500', score: 2},
+        { name: 'Banana', color: 'bg-yellow-500', score: 5},
+        { name: 'Lime', color: 'bg-green-400', score: 2},
+        { name: 'Mango', color: 'bg-orange-300', score: 4},
+    ]
 
-    // const config = [
-    //     { 
-    //         label: 'Name',
-    //         render: (fruit) => fruit.name,
-    //         sortValue: (fruit) => fruit.name
-    //     },
-    //     { 
-    //         label: 'Color',
-    //         render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}> </div>
+    const oldConfig = [
+        { 
+            label: 'Name',
+            render: (fruit) => fruit.name,
+            sortValue: (fruit) => fruit.name
+        },
+        { 
+            label: 'Color',
+            render: (fruit) => <div className={`p-3 m-2 ${fruit.color}`}> </div>
 
-    //     },
-    //     { 
-    //         label: 'Score',
-    //         render: (fruit) => fruit.score,
-    //         sortValue: (fruit) => fruit.score
-    //     },
-    // ]
+        },
+        { 
+            label: 'Score',
+            render: (fruit) => fruit.score,
+            sortValue: (fruit) => fruit.score
+        },
+    ]
 
     const data = jsonData
 
@@ -70,6 +70,12 @@ export default function TablePage(){
     }
     return (
         <div>
+            <Table 
+                data={oldData} 
+                config={oldConfig} 
+                keyFn={keyFn} 
+                tableHeading="Old unsortable table"
+            />
             <SortableTable 
                 data={data} 
                 config={config} 
