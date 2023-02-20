@@ -1,5 +1,5 @@
 import Modal from '../components/Modal'
-import { useState, useReducer } from 'react'
+import { useReducer } from 'react'
 import Button from '../components/Button'
 
 export default function ModalPage(){
@@ -17,8 +17,6 @@ export default function ModalPage(){
             default: 
                 return state
         }
- 
-        return state
     }
 
     const [state, dispatch] = useReducer(reducer, {
