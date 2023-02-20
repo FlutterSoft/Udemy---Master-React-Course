@@ -1,17 +1,44 @@
 import Modal from '../components/Modal'
-import { useState } from 'react'
+import { useState, useReducer } from 'react'
 import Button from '../components/Button'
 
 export default function ModalPage(){
-    const [ showModal, setShowModal ] = useState(false)
 
+    const SET_SHOW_MODAL = 'set-show-modal'
+
+    // Set up reducer with actions
+    const reducer = (state, action) => {
+        switch (action.type) {
+            case SET_SHOW_MODAL:
+                return {
+                    ...state,
+                    showModal: action.payload,
+                }
+            default: 
+                return state
+        }
+ 
+        return state
+    }
+
+    const [state, dispatch] = useReducer(reducer, {
+        showModal: false,
+      });
+      console.log(state);
+    
     const handleClick = (e) => {
-        setShowModal(true)
+        dispatch({
+            type: SET_SHOW_MODAL,
+            payload: true
+          });
     }
 
     const handleClose = (e) => {
-        setShowModal(false)
-    }
+        dispatch({
+            type: SET_SHOW_MODAL,
+            payload: false
+          });    
+        }
 
     const actionBar = <div><Button onClick={handleClose} primary>Accept</Button></div>
 
@@ -24,7 +51,7 @@ export default function ModalPage(){
     return (
         <div>
             <Button onClick={handleClick} primary>Open Modal</Button>
-            {showModal && modal}
+            {state.showModal && modal}
 
             <p>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel mattis libero. Morbi orci ante, eleifend nec sem at, egestas facilisis leo. Nullam vestibulum odio et augue sodales, eu dignissim arcu ornare. Nulla ut consequat nisl. Vestibulum vulputate tincidunt eros, in pretium erat bibendum sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur elementum nisl eget elit dapibus sodales. In congue in magna quis dapibus. Cras ullamcorper laoreet fermentum. 
@@ -40,7 +67,6 @@ export default function ModalPage(){
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel mattis libero. Morbi orci ante, eleifend nec sem at, egestas facilisis leo. Nullam vestibulum odio et augue sodales, eu dignissim arcu ornare. Nulla ut consequat nisl. Vestibulum vulputate tincidunt eros, in pretium erat bibendum sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur elementum nisl eget elit dapibus sodales. In congue in magna quis dapibus. Cras ullamcorper laoreet fermentum. 
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel mattis libero. Morbi orci ante, eleifend nec sem at, egestas facilisis leo. Nullam vestibulum odio et augue sodales, eu dignissim arcu ornare. Nulla ut consequat nisl. Vestibulum vulputate tincidunt eros, in pretium erat bibendum sit amet. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Curabitur elementum nisl eget elit dapibus sodales. In congue in magna quis dapibus. Cras ullamcorper laoreet fermentum. 
             </p>
-
         </div>
     )
 }
