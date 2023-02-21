@@ -19,8 +19,7 @@ export default function Table({ data, config, tableHeading, keyFn }) {
             ) 
         })
 
-        return (
-            
+        return (          
             <tr className="border-b" key={keyFn(rowData)}>
                 {renderedCells}
             </tr>

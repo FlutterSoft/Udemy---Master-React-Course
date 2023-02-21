@@ -4,7 +4,7 @@ import Button from '../components/Button'
 
 export default function ModalPage(){
 
-    const SET_SHOW_MODAL = 'set-show-modal'
+    const SET_SHOW_MODAL = 'set_show_modal'
 
     // Set up reducer with actions
     const reducer = (state, action) => {
@@ -19,6 +19,7 @@ export default function ModalPage(){
         }
     }
 
+    // Default state for reducer
     const [state, dispatch] = useReducer(reducer, {
         showModal: false,
       });
