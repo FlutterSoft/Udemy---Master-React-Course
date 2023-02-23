@@ -3,14 +3,17 @@ import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 
 export default function Accordion({ items }){
 
+    // STATE
     const [expandedIndex, setExpandedIndex] = useState(-1)
     const handleClick = (nextIndex) => {
         expandedIndex === nextIndex ? setExpandedIndex(-1) : setExpandedIndex(nextIndex)
     }
 
+    // Render each item from items list
     const renderedItems = items.map( (item, index) => {
         const isExpanded = index === expandedIndex
         const icon = <span className="text-2xl">
+            {/* If accordion is expanded show down arrow else show left */}
             {isExpanded ? <GoChevronDown /> : <GoChevronLeft />}
         </span>
             return (

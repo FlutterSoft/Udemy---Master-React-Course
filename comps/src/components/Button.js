@@ -13,6 +13,7 @@ export default function Button({
     rounded,
     ...rest
 }){
+    // Class for buttons
     const classes = className(rest.className, 'px-3 py-1.5 border flex items-center ', {
         'bg-blue-500 border-blue-600 text-white hover:bg-blue-600 active:bg-blue-700' : primary,
         'bg-gray-700 border-gray-900 text-white hover:bg-gray-800 active:bg-blue-900' : secondary,
@@ -35,6 +36,7 @@ export default function Button({
         </button>
     )
 }
+    
 Button.propTypes = {
     checkVariationValue: ({ primary, secondary, success, warning, danger }) => {
         const count = Number(!!primary)

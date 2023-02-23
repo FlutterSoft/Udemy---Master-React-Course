@@ -3,6 +3,7 @@ import { GoChevronDown, GoChevronLeft } from "react-icons/go";
 import Panel from './Panel'
 
 export default function Dropdown({ options, value, onChange }){
+    // STATE
     const [isOpen, setIsOpen] = useState(false)
     const divEl = useRef()
 
