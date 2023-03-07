@@ -3,7 +3,7 @@ import { createSlice, nanoid } from '@reduxjs/toolkit'
 const carsSlice = createSlice({
     name: 'cars',
     initialState: {
-        cars: [],
+        data: [],
         searchTerm: ''
     },
     reducers: {
@@ -13,7 +13,7 @@ const carsSlice = createSlice({
         addCar(state, action){
             // Assumption:
             // action.payload === { name: 'namehere', cost: 150 }
-            state.push({
+            state.data.push({
                 name: action.payload.name,
                 cost: action.payload.cost,
                 id: nanoid(),
@@ -22,10 +22,10 @@ const carsSlice = createSlice({
         removeCar(state,action){
             // Assumption:
             // action.payload === the id of the car we want to remove
-            const updated = state.cars.filter(car => {
+            const updated = state.data.filter(car => {
                 return car.id !== action.payload
             })
-            state.cars = updated
+            state.data = updated
         }
     }
 })
