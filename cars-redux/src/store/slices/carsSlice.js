@@ -1,11 +1,13 @@
 import { createSlice, nanoid } from '@reduxjs/toolkit'
 
+// Creates a new slice with the name 'cars', the state is 'data' and 'searchTerm' 
 const carsSlice = createSlice({
     name: 'cars',
     initialState: {
         data: [],
         searchTerm: ''
     },
+    // Actions that can take place to change the state
     reducers: {
         changeSearchTerm(state, action){
             state.searchTerm = action.payload
