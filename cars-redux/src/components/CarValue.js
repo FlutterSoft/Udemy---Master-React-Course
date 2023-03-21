@@ -7,6 +7,7 @@ export default function CarValue({}){
                 car.name.toLowerCase().includes(searchTerm.toLowerCase())
             ).reduce((acc, cur) => acc + cur.cost, 0)
     })
+    
     return (
         <div className="car-value">
             Total Cost: ${totalCost}
