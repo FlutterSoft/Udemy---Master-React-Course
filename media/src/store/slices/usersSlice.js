@@ -17,12 +17,12 @@ const usersSlice = createSlice({
             state.isLoading = false
             state.data = action.payload
         })
-        builder.addCase(fetchUsers.error, (state, action) => {
-            // Update state object to show user loading had an error
-            state.isLoading = false
-            state.error = action.error
 
-        })
+        builder.addCase(fetchUsers.rejected, (state, action) => {
+            // Update state object to show user loading had an error
+            state.isLoading = false;
+            state.error = action.error;
+          });
     }
 })
 
